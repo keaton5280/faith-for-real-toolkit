@@ -9,8 +9,9 @@ rule are `claude/episode-visuals-process.md` in the YouTube Analytics project. `
 - **Before committing a change**, run `python3 episode.py` on `episodes/S2E3.py` and `episodes/_template.py`. If
   `overlays.py` or `framing.py` changed, render S2E3 before and after and diff: old episodes must stay pixel-identical
   unless the change is meant to alter them, and the commit message says so when it is.
-- **After every push**, refresh the project's fallback copy so the two never drift: `python3 make_bundle.py pack
-  /tmp/bundle.md`, then `project_write` it to `claude/visual-pipeline/bundle.md`, and `project_write` `README.md` to
-  `claude/visual-pipeline/README.md` if it changed.
+- **After every push**, refresh the project's fallback copy so the two never drift: `python3 make_bundle.py pack`
+  writes `bundle.md` here (git-ignored); `project_write` it with `local_path` to `claude/visual-pipeline/bundle.md`,
+  and `README.md` to `claude/visual-pipeline/README.md` if it changed. Pack it here, not in `/tmp`: `project_write`
+  only uploads files inside the session's working directory.
 - Episode files other than the S2E3 example and the template live in the project as `claude/episodes/S#E#.py`, not here.
 - Commit messages say what changed for Keaton in plain words.

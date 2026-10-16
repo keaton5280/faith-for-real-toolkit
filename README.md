@@ -34,7 +34,7 @@ episodes/         one file per episode; _template.py is annotated; S2E3.py is th
 ## Setup (fresh session)
 
 ```
-git clone --depth 1 https://github.com/keaton5280/faith-for-real-toolkit pipeline && cd pipeline
+git clone https://github.com/keaton5280/faith-for-real-toolkit pipeline && cd pipeline   # private: add_repo it first
 python3 setup_fonts.py                 # only if fonts/ is empty; installs fonttools + brotli itself if missing
 python3 setup_geo.py                   # only if the episode has a map cue
 pip install pillow numpy --break-system-packages   # normally already present
