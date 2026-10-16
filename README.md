@@ -50,13 +50,20 @@ python3 cuesheet.py episodes/S2E4.py          # → out/S2E4/cuesheet.html  (sho
 # … transcript lands: add anchor + tc to every cue, CORRECTIONS …
 python3 check_anchors.py episodes/S2E4.py transcript.txt --fix     # rewrite anchors to her exact wording, re-check
 python3 check_anchors.py episodes/S2E4.py transcript.txt --strict  # the gate: exits 1 unless every phrase is exact + unique
-python3 render.py episodes/S2E4.py --pictures pictures/raw --check frame.png
+python3 render.py episodes/S2E4.py --pictures pictures/raw --check frame.jpg
 python3 cuesheet.py episodes/S2E4.py          # → same page, now the cue sheet; republish to the same artifact
 
 # both passes in one go (transcript arrived, nothing generated yet): add --plan-first so the
 # Generate and Retrieve sections stay on top of the anchored cue list
 python3 cuesheet.py episodes/S2E4.py --plan-first
 ```
+
+**Her frame.** `--check` lays every file over `frame.jpg`, a still of Katrina in the recording chair, kept in the
+channel folder on dadtop (`FaithForReal\frame.jpg`) and staged with the pictures. It came from S2E9's Descript share
+on 15 Oct 2026: the share page's `og:video:url` is an HLS stream, and dadtop's ffmpeg (`C:\ffmpeg\bin`) takes one
+frame from it at a moment with nothing on screen —
+`ffmpeg -ss 420 -i "<og:video:url>" -frames:v 1 -vf scale=1920:1080 -q:v 2 frame.jpg`. If the set changes, take a
+new one the same way; the workspace itself can't reach Descript's hosts.
 
 `out/S2E4/` (overlays/, README.md, MANIFEST.txt) is the asset pack. It goes to `<PROJECT_FOLDER>\S2E4-assets\` on
 dadtop — `PROJECT_FOLDER` is set once in `style.py` and is currently

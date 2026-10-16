@@ -3,7 +3,7 @@
 
     python3 render.py episodes/S2E4.py                      → out/S2E4/overlays/*.png + README.md + MANIFEST.txt
     python3 render.py episodes/S2E4.py --pictures DIR       → also frames DIR/<picture-id>.* into overlays/
-    python3 render.py episodes/S2E4.py --check frame.png    → out/S2E4/check-*.png (every file over her frame) and
+    python3 render.py episodes/S2E4.py --check frame.jpg    → out/S2E4/check-*.png (every file over her frame) and
                                                               check-phone-*.png (the same at an upright phone's size)
 
 Every run builds into out/<code>.building/ and only replaces out/<code>/overlays/ once everything has rendered, so a
